@@ -6,11 +6,11 @@ from datetime import datetime
 with DAG(
     dag_id="hello_leonardo",
     start_date=datetime(2025, 1, 1),
-    schedule_interval="@daily",   # se ejecuta diario
+    schedule="@daily",          
     catchup=False,
     tags=["example"]
 ) as dag:
-
+    
     # Tarea con BashOperator
     say_hello = BashOperator(
         task_id="say_hello",
